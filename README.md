@@ -14,47 +14,46 @@
 
 ### association
 - has_many :items
-- has_many :order
+- has_many :orders
 
 ## itemsテーブル
-| column       | type    | options                      |
-| ------------ | ------- | ---------------------------- |
-| image        | string  | null:false                   |
-| name         | string  | null:false                   |
-| info         | text    | null:false                   |
-| category     | text    | null:false                   |
-| sales_status | text    | null:false                   |
-| shipping_fee | string  | null:false                   |
-| ship_from    | string  | null:false                   |
-| days_to_ship | string  | null:false                   |
-| price        | integer | null:false                   |
-| seller_id    | integer | null:false,foreign_keys:true |
+| column          | type       | options                      |
+| --------------- | ---------- | ---------------------------- |
+| name            | string     | null:false                   |
+| info            | text       | null:false                   |
+| category_id     | integer    | null:false                   |
+| sales_status_id | integer    | null:false                   |
+| shipping_fee_id | integer    | null:false                   |
+| prefecture_id   | integer    | null:false                   |
+| days_to_ship_id | integer    | null:false                   |
+| price           | integer    | null:false                   |
+| user            | references | null:false,foreign_keys:true |
 
 ### association
 - belongs_to :user
 - has_one :order
 
 ## ordersテーブル
-| column       | type    | options           |
-| ------------ | ------- | ----------------- |
-| item_id      | integer | foreign_keys:true |
-| purchaser_id | integer | foreign_keys:true |
+| column | type       | options                      |
+| ------ | ---------- | ---------------------------- |
+| item   | references | null:false,foreign_keys:true |
+| user   | references | null:false,foreign_keys:true |
 
 ### association
-- belongs_to :items
-- belongs_to :users
+- belongs_to :item
+- belongs_to :user
 - has_one :ship_to_address
 
 ## ship_to_addressesテーブル
-| column        | type    | options                      |
-| ------------- | ------- | ---------------------------- |
-| postal_code   | string  | null:false                   |
-| prefecture    | string  | null:false                   |
-| city          | string  | null:false                   |
-| address       | string  | null:false                   |
-| building_name | string  |                              |
-| phone_number  | integer | null:false                   |
-| order_id      | integer | null:false,foreign_keys:true |
+| column        | type       | options                      |
+| ------------- | ---------- | ---------------------------- |
+| postal_code   | string     | null:false                   |
+| prefecture_id | integer    | null:false                   |
+| city          | string     | null:false                   |
+| address       | string     | null:false                   |
+| building_name | string     |                              |
+| phone_number  | string     | null:false                   |
+| order         | references | null:false,foreign_keys:true |
 
 ### association
 - belongs_to :order
