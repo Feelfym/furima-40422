@@ -10,5 +10,4 @@ class UsersController < ApplicationController
       render :new, :unprocessable_entity
     end
   end
-
 end
