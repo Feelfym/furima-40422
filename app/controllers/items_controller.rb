@@ -9,6 +9,11 @@ class ItemsController < ApplicationController
 
   def create
     item = Item.create(item_params)
+    if item.save
+      redirect_to root_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
@@ -24,8 +29,7 @@ class ItemsController < ApplicationController
             :prefecture_id,
             :days_to_ship_id,
             :price,
-            :user_id,
             :image
-          )
+          ).merge(user_id: current_user.id)
   end
 end
