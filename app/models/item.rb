@@ -8,18 +8,18 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
-  with_options numericality: { other_than: 1 } do
-    validates :category_id
-    validates :days_to_ship_id
-    validates :prefecture_id
-    validates :sales_status_id
-    validates :shipping_fee_id
+  with_options presence: true do
+    validates :image
+    validates :name, length: { maximum: 40 }
+    validates :info, length: { maximum: 1000 }
+    with_options numericality: { other_than: 1 } do
+      validates :category_id
+      validates :sales_status_id
+      validates :shipping_fee_id
+      validates :prefecture_id
+      validates :days_to_ship_id
+    end
+    validates :price, numericality: { only_integer: true, greater_than: 299, less_than: 1_000_000_000, allow_blank: true}
   end
 
-  with_options presence: true do
-    validates :name, length: { maximum: 40 }
-    validates :info
-    validates :price, { numericality: { only_integer: true, greater_than: 299, less_than: 1000000000 } }
-    validates :image
-  end
 end

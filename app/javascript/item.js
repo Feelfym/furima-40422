@@ -6,8 +6,9 @@ function calculate() {
 
   itemPrice.addEventListener('change', () => {
     const price = itemPrice.value;
-    addTaxPrice.innerHTML = price * tax;
-    profit.innerHTML = price - (price * tax);
+    const commission = Math.floor(price * tax);
+    addTaxPrice.innerHTML = commission;
+    profit.innerHTML = price - commission;
   });
 }
 

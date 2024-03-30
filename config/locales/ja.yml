@@ -4,3 +4,32 @@ ja:
       - :year
       - :month
       - :day
+ja:
+  activerecord:
+    errors:
+      models:
+        item:
+          attributes:
+            category_id:
+              other_than: "カテゴリーを選択してください"
+            days_to_ship_id:
+              other_than: "発送までの日数を選択してください"
+            prefecture_id:
+              other_than: "発送元の地域を選択してください"
+            sales_status_id:
+              other_than: "商品の状態を選択してください"
+            shipping_fee_id:
+              other_than: "配送料の負担方法を選択してください"
+            info:
+              blank: "商品の説明を入力してください"
+            price:
+              blank: "価格を入力してください"
+              not_a_number: "価格は数値で入力してください"
+            image:
+              blank: "画像をアップロードしてください"
+            name:
+              blank: "商品名を入力してください"
+      messages:
+        other_than: "は指定された値以外でなければなりません"
+        blank: "を入力してください"
+        not_a_number: "は数値である必要があります"
