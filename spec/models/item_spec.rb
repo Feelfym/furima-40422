@@ -96,6 +96,12 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Price 価格は数値で入力してください")
       end
+
+      it 'userが紐付いていないと登録できない' do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("User 商品の登録にはユーザーが必要です")
+      end
     end
   end
 end

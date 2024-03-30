@@ -28,6 +28,8 @@ ja:
               blank: "画像をアップロードしてください"
             name:
               blank: "商品名を入力してください"
+            user:
+              required: "商品の登録にはユーザーが必要です"
       messages:
         other_than: "は指定された値以外でなければなりません"
         blank: "を入力してください"
