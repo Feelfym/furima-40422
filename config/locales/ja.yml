@@ -4,7 +4,6 @@ ja:
       - :year
       - :month
       - :day
-ja:
   activerecord:
     errors:
       models:
@@ -35,3 +34,6 @@ ja:
         not_a_number: "は数値である必要があります"
         greater_than: "%{count}より大きい必要があります"
         less_than: "%{count}より小さい必要があります"
+  devise:
+    failure:
+      unauthenticated: "ログインしてください"
