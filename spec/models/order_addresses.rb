@@ -73,6 +73,12 @@ RSpec.describe OrderAddress, type: :model do
         expect(@order_address.errors.full_messages).to include("Phone number 電話番号は半角数字で入力してください")
       end
 
+      it 'phone_numberが12桁だと購入できない' do
+        @order_address.phone_number = '090123456789'
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Phone number 電話番号は半角数字で入力してください")
+      end
+
       it 'phone_numberが全角数字だと購入できない' do
         @order_address.phone_number = '０９０１２３４５６７８'
         @order_address.valid?
@@ -83,6 +89,18 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.phone_number = 'abcdefghijk'
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Phone number 電話番号は半角数字で入力してください")
+      end
+
+      it 'user_idが空だと購入できない' do
+        @order_address.user_id = ''
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("User ユーザー情報が不正です。")
+      end
+
+      it 'item_idが空だと購入できない' do
+        @order_address.item_id = ''
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Item 商品IDが不正です。")
       end
 
       it 'tokenが空だと購入できない' do
