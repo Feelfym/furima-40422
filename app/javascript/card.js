@@ -1,5 +1,6 @@
 const pay = () => {
-  const payjp = Payjp('pk_test_08021d73ec683b4ca61edaa8')
+  const publicKey = gon.public_key
+  const payjp = Payjp(publicKey)
   const elements = payjp.elements()
   const numberElement = elements.create('cardNumber')
   const expElement = elements.create('cardExpiry')
@@ -13,7 +14,6 @@ const pay = () => {
   form.addEventListener('submit', (e) => {
     payjp.createToken(numberElement).then((response) => {
       if (response.error) {
-        alert('カード情報が正しくありません。')
       } else {
         const token = response.id
         const renderDom = document.getElementById('charge-form')
@@ -29,3 +29,4 @@ const pay = () => {
   })
 }
 window.addEventListener("turbo:load", pay);
+window.addEventListener("turbo:render", pay);
