@@ -1,41 +1,14 @@
+# itemモデルの属性名を日本語に変更
 ja:
-  date:
-    order:
-      - :year
-      - :month
-      - :day
   activerecord:
-    errors:
-      models:
-        item:
-          attributes:
-            category_id:
-              other_than: "カテゴリーを選択してください"
-            days_to_ship_id:
-              other_than: "発送までの日数を選択してください"
-            prefecture_id:
-              other_than: "発送元の地域を選択してください"
-            sales_status_id:
-              other_than: "商品の状態を選択してください"
-            shipping_fee_id:
-              other_than: "配送料の負担方法を選択してください"
-            info:
-              blank: "商品の説明を入力してください"
-            price:
-              blank: "価格を入力してください"
-              not_a_number: "価格は数値で入力してください"
-            image:
-              blank: "画像をアップロードしてください"
-            name:
-              blank: "商品名を入力してください"
-            user:
-              required: "商品の登録にはユーザーが必要です"
-      messages:
-        other_than: "は指定された値以外でなければなりません"
-        blank: "を入力してください"
-        not_a_number: "は数値である必要があります"
-        greater_than: "%{count}より大きい必要があります"
-        less_than: "%{count}より小さい必要があります"
-  devise:
-    failure:
-      unauthenticated: "ログインしてください"
+    attributes:
+      item:
+        name: 商品名
+        image: 画像
+        price: 価格
+        category_id: カテゴリ
+        sales_status_id: 商品の状態
+        shipping_fee_id: 配送料の負担
+        prefecture_id: 発送元の地域
+        days_to_ship_id: 発送までの日数
+        info: 商品の説明
